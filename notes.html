@@ -5,17 +5,96 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Notes</title>
     <style>
-        body{
-            background-color: plum;
-          
+        
+        body {
+            background-color:#ADD8E6;
+            font-family: Arial, Helvetica, sans-serif;
         }
+        .title-container {
+            display: flex;
+            align-items: center; 
+           
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        li {
+            background-color: white;
+            padding: 8px;
+            margin: 5px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-radius: 5px;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+            width: 250px;
+
+        }
+        span {
+            color: red;
+            cursor: pointer;
+            margin-left: 10px;
+            font-weight: bold;
+        }
+        img{
+            width:50px;
+            height: 50px;
+            vertical-align: middle;
+            display:flex;
+           
+        }
+        input {
+        padding: 10px;
+        width: 250px;
+        border: solid white;
+        border-radius: 5px;
+        margin-right: 5px;
+        margin-top: 20px;
+        height: 80px;
+    }
+    button{
+    background-color: #0d6588; 
+    border: none;
+    color: rgb(243, 243, 243);
+    outline: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 25px;
+    font-family: Arial, sans-serif; 
+    }
+  span{
+    color:white ;
+        background-color: #0d6588;
+        box-shadow: 1px 2px 3px black;
+        padding: 2px 8px;
+        cursor: pointer;
+        border-top-left-radius: 4px;
+        border-bottom-left-radius: 4px;
+  }
+    
+        
+    </style>
 
     </style>
 </head>
 <body>
-    <h1>Notes</h1>
+    <div class="title-container">
+    <img src="https://static.vecteezy.com/system/resources/thumbnails/023/751/240/small/3d-render-of-blue-and-pink-website-development-or-programming-page-png.png" alt="small image">
+    <h1 style="margin-right: 50px;">Notes</h1>
+</div>
+
+    <button> ✏️ Create Notes</button>
+
+<div class="input"> 
     <input type="text">
-    <button>add</button>
+</div>
+    
   
     <ul></ul>
     <script>
@@ -24,15 +103,28 @@
         const ul = document.querySelector('ul')
 
        ADD.addEventListener('click',function(){
-        const task =  input.value.trim()
+        const task =  input.value.trim();
         if(task !== ""){
             const li =  document.createElement('li')
             li.innerText= task;
             ul.appendChild(li);
-            input.value="";
+            
+       
+            const span = document.createElement("span");
+        span.innerText = " delete"
+        li.appendChild(span)
 
+
+            input.value="";
+            
+            span.addEventListener("click",function(){
+                ul.removeChild(li);
+            });
         }
-       });
+    });
+            
+
+
     </script>
 </body>
 </html>
