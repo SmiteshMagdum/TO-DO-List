@@ -70,15 +70,15 @@
         const add = document.querySelector('button');
         const ul = document.querySelector('ul');
 
-        add.addEventListener('click', function() {  // Fixed case-sensitive variable name
+        add.addEventListener('click', function() {  
             const task = input.value.trim();
             if (task !== "") {
                 const li = document.createElement('li');
-                li.innerText = task;  // Added missing innerText
+                li.innerText = task;  
 
                
-                ul.appendChild(li);   // Fixed typo in appendChild
-                input.value = "";  // Clearing input field
+                ul.appendChild(li);  
+                input.value = "";  
             }
         });
     </script>
